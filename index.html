@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            let num = Math.floor(Math.random() * (3 - 1 + 1)) +1 ;
+            if (num == 1) {
+                return "rock";
+            }
+            else if (num == 2){
+                return "paper";
+            }
+            else {
+                return "scissors";
+            }
+        }
+        
+        
+        
+
+        function playerChoice () {
+            let selection = prompt ("Rock, Paper scissors go!");
+            if (selection != null){
+                selection = selection.toLowerCase();
+            return selection;
+            }
+            else {
+                selection = "";
+                return selection;
+            }
+            
+        }
+    
+        
+        
+        
+       
+
+
+        function playround (playerSelection, getComputerSelection) {
+            if ((playerSelection == "rock" && getComputerSelection == "scissors") || (playerSelection == "paper" && getComputerSelection == "rock") || (playerSelection =="scissors" && getComputerSelection == "paper")) {
+                playerscore++;
+                console.log(`your score:${playerscore}  computer score: ${computerscore}`);
+                return `You win ! ${playerSelection} beats ${getComputerSelection} `;
+            }
+            
+            else if (playerSelection == getComputerSelection) {
+                console.log(`your score:${playerscore}  computer score: ${computerscore}`);
+                return "Draw !";
+                
+            }
+            else if (playerSelection == ""){
+                console.log(`your score:${playerscore}  computer score: ${computerscore}`);
+                return "You didnt play";
+                
+            }
+            else {
+                computerscore++;
+                console.log(`your score:${playerscore}  computer score: ${computerscore}`);
+                return `You loose! ${playerSelection} looses to ${getComputerSelection}`;
+                
+            }
+            
+        }
+        
+            
+          
+        let computerscore = 0;    
+
+        let playerscore = 0;
+        
+        
+        function game () {
+            for (var i = 1; i<=5; i++){
+                console.log(playerSelection = playerChoice());
+        
+                console.log(getComputerSelection = getComputerChoice());
+                console.log(playround(playerSelection,getComputerSelection));
+                
+                
+               
+                
+            }
+            if (playerscore>computerscore){
+                console.log('you won the series');
+
+            }
+            else if (playerscore == computerscore){
+                console.log('the series is a draw');
+            }
+            else {
+                console.log('haha you lost');
+            }
+            
+            
+            
+        }
+        game();
+    </script>
+    
+</body>
+</html>
